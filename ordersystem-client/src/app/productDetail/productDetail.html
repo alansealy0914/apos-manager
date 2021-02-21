@@ -1,0 +1,92 @@
+
+<div class="row">
+    <caption>Product: &nbsp;&nbsp;{{product.name}}</caption>
+</div><br>
+
+
+<!--<div class="row">
+    <div class="col-md-2">
+        <b>Color:</b>
+    </div>
+    <div class="col-md-4 end">
+        {{product.color}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <b>Price:</b>
+    </div>
+    <div class="col-md-4 end">
+        {{product.price | currency:'USD':'symbol'}}
+    </div>
+</div>-->
+
+
+<div class="row">
+  <div class="col-sm-8">
+    <table class="table table-bordered table-sm table-hover">
+    <thead class="thead-primary">
+      <tr>
+        <th style="font-size: 12px" scope="col">Product ID:</th>
+        <th style="font-size: 12px" scope="col">Description:</th>
+        <th style="font-size: 12px" scope="col">Item Price:</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-size: 12px" scope="row">{{product.id}}</td>
+        <td style="font-size: 12px" scope="row">{{product.description}}</td>
+        <td style="font-size: 12px">{{product.price | currency:'USD':'symbol'}}</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+<br><br>
+  <div class="row">
+  <div class="form-group" style="margin-left: 15px;">
+    <strong style="font-size: 12px;" for="password">Terms and conditions:</strong>
+    <div style="width:360px;height:80px;overflow:scroll;padding-left:20px;background-color:rgb(238, 236, 217);color:#714D03;border:4px double #DEBB07;font-size: 10px">
+        <p>Introduction:<br>
+            These Website Standard Terms And Conditions (these "Terms" or these "Website Standard Terms") contained herein on this webpage, shall govern your use of this website, 
+            including all pages within this website (collectively referred to herein below as this "Website"). These Terms apply in full force and effect to your use of this Website
+            and by using this Website, you expressly accept all terms and conditions contained herein in full. You must not use this Website, if you have any objection to any of these
+            Website Standard Terms And Conditions. This website is not for use by any minors (defined as those who are not at least 18 years of age), and you must not use this Website
+            if you are a minor. 
+        </p>
+    </div><br>
+    
+    
+    
+</div>
+</div>
+</div>
+  <div class="col-sm-4">
+    <img src="{{ product.imageUrl }}" alt="Logo" style="margin-left:100px; width:200px"><br><br>
+    <span style="margin-left: 120px"><button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); font-size: 12px">Cross Reference Diagram</button>
+    </span>
+  </div>
+</div>
+
+
+
+
+ 
+
+
+            <input type="checkbox" [(ngModel)]="agree">&nbsp;I agree to Terms and Conditions
+            <div>
+                <input type="checkbox" [(ngModel)]="sib" name="sib" value="male">&nbsp;Enable (SIB) Service Infromation Bulletin<br/>
+                <!--<input type="radio" [(ngModel)]="gender" name="gender" value="female">Female-->
+            </div><br>
+            <a href="../../assets/sils-cross-ref/B012016-1.pdf">
+                <input class="btn btn-primary" style="box-shadow: 0px 8px 16px 0px rgba(14, 13, 13, 0.342); color:mintcream; font-size: 16px" type="button" [disabled]="!sib || !agree" text="go" value="Service Information Bulletin" (click)="btnClick()">
+            </a><br><br>
+
+
+
+
+
+

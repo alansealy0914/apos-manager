@@ -1,0 +1,18 @@
+
+<div class="row">
+    <div class="container-fluid">
+        <!--<ul><li>{{title}}</li></ul>-->
+        <h5>{{title}}</h5>
+        
+        <!--<form class="form-inline">
+                <div class="form-group">
+                    <div class="input-group">
+                        <input #ordersFilter type="text" class="form-control" style="width:200px; height:30px; font-size: 12px" placeholder="Search Customer Name" (keyup)="filterOrders(ordersFilter.value)">&nbsp;
+                    </div> 
+                </div>
+                <button type="button" (click)="goToCreateOrder()" class="btn btn-info btn-sm">Create Customer</button>
+            </form>-->
+
+        <customers-table class="table table-hover table-sm table-bordered" [customers]="customers"></customers-table>
+    </div>
+</div>

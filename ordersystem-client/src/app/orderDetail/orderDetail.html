@@ -1,0 +1,67 @@
+
+
+
+
+<div *ngIf="dataLoaded">
+    <div class="row">
+        <p style="font-size: 16px;"><span>{{customer.fullName}}</span> - <small>Order ID {{order.id}}</small></p>
+        
+    </div>
+    <br>
+     
+    <div class="row">
+        <div class="col-md-12">
+            <!--<label>Orders</label>-->
+            <table class="table table-hover table-bordered table-sm ">
+                <thead>
+                    <tr>
+                        <th style="font-size: 12px">Product ID</th>
+                        <th style="font-size: 12px">Product Name</th>
+                        <th style="font-size: 12px">Quantity</th>
+                        <th style="font-size: 12px">Total Price</th>
+                        <!--<th style="font-size: 14px">Total Sale</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of order.items | paginate: { itemsPerPage: 3, currentPage: p }; let i = index">
+                        <td style="font-size: 12px"><a href="#/products/{{item.productId}}">{{item.productId}}</a></td>
+                        <td style="font-size: 12px">{{item.productName}}</td>
+                        <td style="font-size: 12px">{{item.quantity}}</td>
+                        <td style="font-size: 12px">{{item.itemPrice | currency:'USD':'symbol'}}</td>
+                        <!--<td style="font-size: 14px">{{item.totalSale | currency:'USD':'symbol'}}</td>-->
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <small><pagination-controls (pageChange)="p = $event"></pagination-controls></small>
+    </div><br><br>
+
+    <div class="col-sm-12">
+            <div class="row" *ngIf="customer.getsDiscount">
+                    <div class="col-md-3">
+                        <strong style="font-size: 12px;"><i>Total Cost:</i></strong>
+                    </div>
+                    <div class="col-md-4 end">
+                        <p style="font-size: 12px;">{{order.totalCost | currency:'USD':'symbol'}}</p>
+                    </div>
+                </div>
+                <div class="row" *ngIf="customer.getsDiscount">
+                    <div class="col-md-3">
+                        <strong style="font-size: 12px;"><i>Customer Discount:</i></strong>
+                    </div>
+                    <div class="col-md-4 end">
+                        <p style="font-size: 12px;">{{customer.discount.discountPercent}}%</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <strong style="font-size: 12px;"><i>Total Sale:</i></strong>
+                    </div>
+                    <div class="col-md-4 end">
+                        <p style="font-size: 12px;">{{order.totalSale | currency:'USD':'symbol'}}</p>
+                    </div>
+                </div>
+    </div>
+    
+</div>
